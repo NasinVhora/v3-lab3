@@ -1,0 +1,8 @@
+<div class="todoWrapper" *ngIf="!todo.completed; else todob">
+    <input type="checkbox" (click)="completeTodo()"/> <label>{{todo.text}}</label> 
+</div>
+<ng-template class="todoWrapper" #todob>
+    <input type="checkbox" (click)="listBEnable()"/> <label>{{todo.text}}</label> 
+    <button class="removeTodo" (click)="undoTodo()" [disabled]="!todo.listBEnable">Undo</button> 
+    <button class="removeTodo" (click)="removeTodo()" [disabled]="!todo.listBEnable">Remove</button> 
+</ng-template>
